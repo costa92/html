@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    #loading{
+        position:absolute;
+        width: 100%;
+        top:0px;
+        /* left:50%; */
+        /* margin-left:-150px; */
+        text-align:center;
+        padding:7px 0 0 0;
+        font:bold 11px Arial, Helvetica, sans-serif;
+    }
+
+</style>
+<body>
+<div class="form-group">
+    <div class="col-md-3">
+        <input id="uploadFile" name="share_img" value ="" class="form-control"   readonly="true" />
+    </div>
+    <div class="col-md-3">
+        <div class="fileUpload btn btn-primary">
+            <span>Upload</span>
+            <input id="uploadBtn" type="file" class="upload" />
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("uploadBtn").onchange = function () {
+        document.getElementById("uploadFile").value = this.value;
+    };
+</script>
+</body>
+</html>
