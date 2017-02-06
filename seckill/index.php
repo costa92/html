@@ -4,8 +4,8 @@
 date_default_timezone_set('PRC');
 
 //配置每天的活动时间段
-$starttimestr = "2017-02-05 17:38:00";
-$endtimestr   = "2017-02-06 17:53:00";
+$starttimestr = date('Y-m-d H:i:s',strtotime(date('Y-m-d')));
+$endtimestr   = date('Y-m-d H:i:s',strtotime(date('Y-m-d',strtotime('+1 day'))));
 $starttime    = strtotime($starttimestr);
 $endtime      = strtotime($endtimestr);
 $nowtime      = time();
@@ -27,7 +27,8 @@ if ($endtime >= $nowtime){
     <title>PHP+JS活动秒杀倒计时原理</title>
 </head>
 <body>
-
+<h1>活动开始时间:<?php echo $starttimestr?></h1>
+<h1>活动结束时间:<?php echo $endtimestr ?></h1>
 <h4>距离活动结束还有 <strong id="RemainD"></strong>天
     <strong id="RemainH"></strong>小时
     <strong id="RemainM"></strong>分钟
