@@ -1,3 +1,25 @@
+<?php
+// 注意：php的时间是以秒算。js的时间以毫秒算
+// 设置时区
+date_default_timezone_set('PRC');
+
+//配置每天的活动时间段
+$starttimestr = "2017-02-05 17:38:00";
+$endtimestr   = "2017-02-06 17:53:00";
+$starttime    = strtotime($starttimestr);
+$endtime      = strtotime($endtimestr);
+$nowtime      = time();
+
+if ($nowtime < $starttime){
+    exit("活动还没开始,活动时间是：{$starttimestr}至{$endtimestr}");
+}
+if ($endtime >= $nowtime){
+    $lefttime = $endtime - $nowtime; //实际剩下的时间（秒）
+} else {
+    $lefttime = 0;
+    exit("活动已经结束！");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +28,49 @@
 </head>
 <body>
 
+<h4>距离活动结束还有 <strong id="RemainD"></strong>天
+    <strong id="RemainH"></strong>小时
+    <strong id="RemainM"></strong>分钟
+    <strong id="RemainS"></strong>.<strong id="RemainL"></strong>秒
+</h4>
 
-<javaScap>
+<script>
+    var runtimes = 0;
+    function GetRTime(){
+        var lefttime = <?php echo $lefttime; ?>*1000-runtimes*1000;
+        if (lefttime >= 0) {
+            var nD = Math.floor(lefttime/(1000*60*60*24))%24;
+            var nH = Math.floor(lefttime/(1000*60*60))%24;
+            var nM = Math.floor(lefttime/(1000*60)) % 60;
+            var nS = Math.floor(lefttime/1000) % 60;
+            document.getElementById("RemainD").innerHTML=nD;
+            document.getElementById("RemainH").innerHTML=nH;
+            document.getElementById("RemainM").innerHTML=nM;
+            document.getElementById("RemainS").innerHTML=nS;
+            if(lefttime == 5 * 60 * 1000){
+                alert("还有最后五分钟！");
+            }
+            runtimes++;
+            setTimeout("GetRTime()",1000);
+        } else {
+            alert('活动结束了！');
+            location.reload();
+        }
+    }
+    var Num = 0;
+    onload = function() {
+        Refresh();
+        setInterval("Refresh();",100);
+        GetRTime();
+    }
+    function Refresh() {
+        if (Num < 10){
+            document.getElementById("RemainL").innerHTML = Num;
+            Num = Num + 1;
+        } else {
+            Num=0;
+        }
+    }
+    </script>
 </body>
 </html>
