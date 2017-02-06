@@ -34,31 +34,57 @@
         font:bold 11px Arial, Helvetica, sans-serif;
     }
 
+    #imgPath{
+        width: 400px;
+    }
+
 </style>
 <body>
-<div class="form-group">
-    <div class="col-md-3">
-        <input id="uploadFile" name="share_img" value ="" class="form-control"   readonly="true" />
-    </div>
-    <div class="col-md-3">
-        <div class="fileUpload btn btn-primary">
-            <span>Upload</span>
-            <input id="uploadBtn" type="file" class="upload" />
+<div class="content-wrapper">
+    <div class="main animsition">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <input id="uploadFile" name="share_img" value ="" class="form-control"   readonly="true" />
+                </div>
+                <div class="col-md-3">
+                    <div class="fileUpload btn btn-primary">
+                        <span>Upload</span>
+                        <input id="uploadBtn" type="file" class="upload" />
+                    </div>
+                </div>
+            </div>
+        </div>
+            <br />
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <img src="" id="imgPath" style="display: none">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <conter>
+                            <p>代码下载地址:<a href="https://github.com/costa92/html/blob/master/upload/index.html" target="_blank">https://github.com/costa92/html/blob/master/upload/index.html</a></p>
+                            <p>博客地址:<a href="https://blog.longqiuhong.com" target="_blank">https://blog.longqiuhong.com</a></p>
+                        </conter>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+ </div>
 <script>
     document.getElementById("uploadBtn").onchange = function () {
         document.getElementById("uploadFile").value = this.value;
+        var img =  document.getElementById("imgPath");
+        img.setAttribute('src',this.value); // 给src添加图片路径
+        img.style.display="block"  // 显示图片
     };
 </script>
-<div class="form-group">
-    <div class="col-md-3">
-       <conter>
-            <p>代码下载地址:<a href="https://github.com/costa92/html/blob/master/upload/index.html" target="_blank">https://github.com/costa92/html/blob/master/upload/index.html</a></p>
-            <p>博客地址:<a href="https://blog.longqiuhong.com" target="_blank">https://blog.longqiuhong.com</a></p>
-       </conter>
-    </div>
-</div>
 </body>
 </html>
