@@ -74,7 +74,7 @@ if ($endtime >= $nowtime){
     }
     </script>
 <conter>
-    <p>代码下载地址:<a href="https://github.com/costa92/html/blob/master/upload/index.html" target="_blank">https://github.com/costa92/html/blob/master/upload/index.html</a></p>
+    <p>代码下载地址:<a href="https://github.com/costa92/html/blob/master/seckill/index.php" target="_blank">https://github.com/costa92/html/blob/master/seckill/index.php</a></p>
     <p>博客地址:<a href="https://blog.longqiuhong.com" target="_blank">https://blog.longqiuhong.com</a></p>
 </conter>
 </body>
