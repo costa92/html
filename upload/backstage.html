@@ -66,6 +66,67 @@
                 </div>
             </div>
             <br />
+            <div class="row" >
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <p>html代码:</p>
+                        <pre>
+                            <code>
+&lt;div class="form-group"&gt
+    &lt;div class="col-md-3"&gt
+        &lt;input id="uploadFile" name="share_img" value ="" class="form-control"   readonly="true" /&gt
+    &lt;/div&gt
+    &lt;div class="col-md-3"&gt
+        &lt;div class="fileUpload btn btn-primary"&gt
+            &lt;span&gtUpload&lt;/span&gt
+            &lt;input id="uploadBtn" type="file" class="upload" /&gt
+        &lt;/div&gt
+    &lt;/div&gt
+&lt;/div&gt
+                            </code>
+                        </pre>
+                        <p>js代码:</p>
+                        <pre>
+                            <code>
+ $("#uploadBtn").change(function(){
+        if (typeof (FileReader) != "undefined") {
+            var formdata = new FormData();
+            var v_this = $(this);
+            var fileObj = v_this.get(0).files;
+            var img = $("#imgPath");
+            formdata.append("imgFile", fileObj[0]);
+            $.ajax({
+                url:"https://api.longqiuhong.com/upload/images",
+                type: "POST",
+                dataType: "JSON",
+                async: false,
+                data : formdata,
+                cache : false,
+                contentType : false,
+                processData : false,
+                timeout : 5000,
+                success:function (data) {
+                    if(data.success == true){
+                        img.attr('src', data.url);
+                        img.css('display','block');
+                        $("#uploadFile").val(data.url);
+                    }else{
+                        alert("上传错误!!");
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(errorThrown)
+                }
+            });
+        }
+    });
+
+                            </code>
+                        </pre>
+                        <p>要引用jQuery文件:https://code.jquery.com/jquery-3.1.1.min.js</p>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-6">
