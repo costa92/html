@@ -83,7 +83,7 @@
     $("#uploadBtn").change(function(){
         if (typeof (FileReader) != "undefined") {
             var file_div = $(this).val();
-            var url = window.URL.createObjectURL(this.files[0]);  // 或本地地址
+            var url = window.URL.createObjectURL(this.files[0]);   // 获取本地上传图片地址
             var img = $("#imgPath");
             img.attr('src', url);
             img.css('display','block');
