@@ -82,28 +82,37 @@
 <script>
     $("#uploadBtn").change(function(){
         if (typeof (FileReader) != "undefined") {
-            var file_div = $(this).val();
-            var url = window.URL.createObjectURL(this.files[0]);  // 获取本地上传图片地址
+            var formdata = new FormData();
+            var v_this = $(this);
+            var fileObj = v_this.get(0).files;
             var img = $("#imgPath");
-            img.attr('src', url);
-            img.css('display','block');
+            formdata.append("imgFile", fileObj[0]);
+            $.ajax({
+                url:"http://api.costa92.com/upload/images",
+                type: "POST",
+                dataType: "JSON",
+                async: false,
+                data : formdata,
+                cache : false,
+                contentType : false,
+                processData : false,
+                timeout : 5000,
+                success:function (data) {
+                    if(data.success == true){
+                        img.attr('src', data.url);
+                        img.css('display','block');
+                        $("#uploadFile").val(data.url);
+                    }else{
+                        alert("上传错误!!");
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(errorThrown)
+                }
+            });
         }
     });
 
-    //    document.getElementById("uploadBtn").onchange = function () {
-    ////        $.ajax({
-    ////            url:"https://sm.ms/api/upload",
-    ////            type:"psot",
-    ////            data:{'smfile':},
-    ////            success:function (data) {
-    ////
-    ////             }
-    ////        });
-    //        document.getElementById("uploadFile").value = this.value;
-    //        var img =  document.getElementById("imgPath");
-    //        img.setAttribute('src',this.value); // 给src添加图片路径
-    //        img.style.display="block"  // 显示图片
-    //    };
 </script>
 </body>
 </html>
