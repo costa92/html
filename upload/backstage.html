@@ -148,9 +148,9 @@
             var v_this = $(this);
             var fileObj = v_this.get(0).files;
             var img = $("#imgPath");
-            formdata.append("imgFile", fileObj[0]);
+            formdata.append("smfile", fileObj[0]);
             $.ajax({
-                url:"https://api.longqiuhong.com/upload/images",
+                url:"https://sm.ms/api/upload",
                 type: "POST",
                 dataType: "JSON",
                 async: false,
@@ -160,10 +160,10 @@
                 processData : false,
                 timeout : 5000,
                 success:function (data) {
-                    if(data.success == true){
-                        img.attr('src', data.url);
+                    if(data.code == "success"){
+                        img.attr('src', data.data.url);
                         img.css('display','block');
-                        $("#uploadFile").val(data.url);
+                        $("#uploadFile").val(data.data.url);
                     }else{
                         alert("上传错误!!");
                     }
