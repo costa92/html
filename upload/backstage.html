@@ -93,7 +93,7 @@
             var formdata = new FormData();
             var v_this = $(this);
             var fileObj = v_this.get(0).files;
-            var img = $("#imgPath");
+            var img = $("#smfile");
             formdata.append("imgFile", fileObj[0]);
              url:"https://sm.ms/api/upload",
                 type: "POST",
