@@ -6,3 +6,9 @@
     backstage.html css+js跨域上传图片
     
 **seckill**文件是PHP+js秒杀
+
+
+**php/qrcode** 文件是生成二维码
+   
+    examples文件是生成二维码的例子
+

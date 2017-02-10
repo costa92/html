@@ -66,8 +66,8 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="https://blog.longqiuhong.com/" target="_blank">我的博客</a></li>
-                        <li><a href="https://github.com/costa92/html" target="_blank">GitHub地址</a></li>
-                        <li class="active"><a href="#">预览地址</a></li>
+                        <li><a href="https://github.com/costa92/html/tree/master/php/qrcode" target="_blank">GitHub地址</a></li>
+                        <li class="active"><a href="https://word.longqiuhong.com/php/qrcode/">预览地址</a></li>
                     </ul>
                 </div>
             </div>
