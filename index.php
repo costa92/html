@@ -84,7 +84,7 @@
         </div>
         <div class="col-xs-9">
             <!-- section-1  -->
-            <h2 id="section-1">第一部分</h2>
+            <h2 id="section-1">第一部分1</h2>
 
             <hr>
             <!-- section-2  -->
