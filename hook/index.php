@@ -9,9 +9,9 @@ error_reporting(1);
 
 $target = dirname(__DIR__); // 生产环境web目录
 
-$token = 'wordtest123456';
-$wwwUser = 'word';
-$wwwGroup = 'web';
+$token = '122';
+$wwwUser = '11';
+$wwwGroup = '2112';
 
 echo $json = json_decode(file_get_contents('php://input'), true);
 if (empty($json['token']) || $json['token'] !== $token) {
