@@ -13,7 +13,7 @@ $token = 'wordtest123456';
 $wwwUser = 'word';
 $wwwGroup = 'web';
 
-$json = json_decode(file_get_contents('php://input'), true);
+echo $json = json_decode(file_get_contents('php://input'), true);
 if (empty($json['token']) || $json['token'] !== $token) {
     exit('error request');
 }
