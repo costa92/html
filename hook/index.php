@@ -9,7 +9,7 @@ error_reporting(1);
 
 $target = dirname(__DIR__); // 生产环境web目录
 
-$token = '您在coding填写的hook令牌';
+$token = 'wordtest123456';
 $wwwUser = 'word';
 $wwwGroup = 'web';
 
